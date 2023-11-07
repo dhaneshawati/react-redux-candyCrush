@@ -141,6 +141,25 @@ function App() {
       }
     }
   };
+  const moveIntoSquareBelow = () => {
+    for (let i = 0; i < 100 - width; i++) {
+      const firstRow = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+      const isFirstRow = firstRow.includes(i);
+
+      if (isFirstRow && currentCandyArrangement[i] === blank) {
+        fillNewCandies(i);
+      }
+      if (currentCandyArrangement[i + width] === blank) {
+        currentCandyArrangement[i + width] = currentCandyArrangement[i];
+        currentCandyArrangement[i] = blank; // moving blank squares to top
+      }
+    }
+  };
+
+  const fillNewCandies = (index) => {
+    let randomNumber = Math.floor(Math.random() * candyColors.length);
+    currentCandyArrangement[index] = candyColors[randomNumber];
+  };
   useEffect(() => {
     const timer = setInterval(() => {
       checkForColumnOfFive();
@@ -149,18 +168,13 @@ function App() {
       checkForRowOfFour();
       checkForColumnOfThree();
       checkForRowOfThree();
+      moveIntoSquareBelow();
       setCurrentCandyArrangement([...currentCandyArrangement]);
-    }, 5000);
+      console.log("TESTING...");
+    }, 100);
+
     return () => clearInterval(timer);
-  }, [
-    checkForColumnOfFive,
-    checkForColumnOfFour,
-    checkForColumnOfThree,
-    checkForRowOfFive,
-    checkForRowOfFour,
-    checkForRowOfThree,
-    currentCandyArrangement,
-  ]);
+  }, [currentCandyArrangement]);
 
   const createBoard = () => {
     const randomCandyArrangement = [];
@@ -171,7 +185,7 @@ function App() {
     }
     setCurrentCandyArrangement([...randomCandyArrangement]);
   };
-  console.log(currentCandyArrangement);
+  // console.log(currentCandyArrangement);
   return (
     <div className="App">
       <div className="game">
