@@ -1,0 +1,29 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+.game{
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background-color: brown;
+  padding: 5px;
+}
+.game img{
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  /* background-color: red; */
+  /* padding: 5px; */
+}
+
