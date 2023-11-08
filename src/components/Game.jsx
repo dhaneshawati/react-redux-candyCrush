@@ -4,10 +4,10 @@ import greenCandy from "../Assets/green-candy-round.jpeg";
 import orangeCandy from "../Assets/orange-candy-big.jpeg";
 import purpleCandy from "../Assets/purple-candy.jpeg";
 import redCandy from "../Assets/red-candy.jpeg";
-import yellowCandy from "../Assets/yellow-candy.jpeg";
+// import yellowCandy from "../Assets/yellow-candy.jpeg";
 import blank from "../Assets/blank.png";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   decreaseCandies,
   decreaseMoves,
@@ -15,21 +15,13 @@ import {
 } from "../redux/actions/actionCreator";
 
 const width = 10;
-const candyColors = [
-  blueCandy,
-  greenCandy,
-  orangeCandy,
-  purpleCandy,
-  redCandy,
-  yellowCandy,
-];
+const candyColors = [blueCandy, greenCandy, orangeCandy, purpleCandy, redCandy];
 function Game() {
   const [currentCandyArrangement, setCurrentCandyArrangement] = useState([]);
   const [squareBeingDragged, setSquareBeingDragged] = useState(null);
   const [squareBeingReplaced, setSquareBeingReplaced] = useState(null);
   const [dragFlag, setDragFlag] = useState(false);
   const dispatch = useDispatch();
-  const score = useSelector((state) => state.score);
 
   useEffect(() => {
     createBoard();

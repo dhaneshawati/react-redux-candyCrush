@@ -11,6 +11,7 @@ import {
   updateGoal,
 } from "../redux/actions/actionCreator";
 import GameWonModal from "./GameWonModal";
+import Burst from "./Burst";
 
 function Mission() {
   const [openModal, setOpenModal] = useState(false);
@@ -24,15 +25,16 @@ function Mission() {
     if (candiesRemaining < 0) {
       dispatch(showValidCandies());
     }
-    if (maxMoves <= 0) {
-      dispatch(showValidMoves());
-      //   dispatch(levelFailed());
-    }
-    if (maxMoves > 0 && candiesRemaining <= 0) {
+
+    if (maxMoves >= 0 && candiesRemaining <= 0) {
       setOpenModal(true);
       //   dispatch(updateGoal(5));
       //   dispatch(levelCleared());
       //   dispatch(nextLevel());
+    }
+    if (maxMoves <= 0) {
+      dispatch(showValidMoves());
+      //   dispatch(levelFailed());
     }
   }, [candiesRemaining, maxMoves]);
 
@@ -44,6 +46,7 @@ function Mission() {
         <p>{`remaining : ${candiesRemaining}`}</p>
       </div>
       <div className="movesLeft">Moves Left : {maxMoves}</div>
+      <Burst cleared={openModal} />
       <GameWonModal open={openModal} setOpen={setOpenModal} />
     </div>
   );

@@ -15,8 +15,8 @@ import {
 
 const initialState = {
   score: 0,
-  missionMoves: 10,
-  movesLeft: 10,
+  missionMoves: 15,
+  movesLeft: 15,
   missionGoal: 15,
   candiesLeft: 15,
   gameLevel: 1,

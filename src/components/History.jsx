@@ -7,12 +7,15 @@ function History() {
   const wonGames = useSelector((state) => state.gamesWon);
   const lostGames = useSelector((state) => state.gamesLost);
   const movesRemaining = useSelector((state) => state.movesLeft);
+  const candiesRemaining = useSelector((state) => state.candiesLeft);
   const [openLostModal, setOpenLostModal] = useState(false);
 
   useEffect(() => {
-    if (movesRemaining <= 0) {
-      setOpenLostModal(true);
-    }
+    setTimeout(() => {
+      if (movesRemaining <= 0 && candiesRemaining > 0) {
+        setOpenLostModal(true);
+      }
+    }, 10);
   }, [movesRemaining]);
 
   return (
