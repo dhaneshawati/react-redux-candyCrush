@@ -1,16 +1,59 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 .App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.history {
+  flex: 0.3;
+  border: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 20px;
+  padding: 20px;
+  font-family: "Roboto";
+  background-color: rgb(2, 59, 42);
+  color: white;
+  border-radius: 10px;
+}
+.centerBoard {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 30px;
+  gap: 12px;
+  border: 1px solid white;
+  font-family: "Roboto";
+  background-color: gray;
+  color: white;
+  border-radius: 10px;
 }
-.game{
+.mission {
+  flex: 0.3;
+  border: 1px solid lightgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 20px;
+  padding: 20px;
+  font-family: "Roboto";
+  background-color: rgb(44, 1, 44);
+  color: white;
+  border-radius: 10px;
+}
+.game {
   width: 500px;
   height: 500px;
   display: flex;
@@ -18,12 +61,25 @@
   gap: 10px;
   background-color: brown;
   padding: 5px;
+  border-radius: 5px;
 }
-.game img{
+.game img {
   width: 40px;
   height: 40px;
   border-radius: 5px;
   /* background-color: red; */
   /* padding: 5px; */
 }
-
+.game img:hover {
+  cursor: pointer;
+}
+.targetCount {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+.targetCount img {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}

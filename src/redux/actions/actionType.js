@@ -1,0 +1,12 @@
+export const MOVESLEFT = "movesLeftToWin";
+export const CANDIESLEFT = "candiesLeftToWin";
+export const LEVELUP = "levelUp";
+export const WON = "won";
+export const LOST = "lost";
+export const RESET = "reset";
+export const GOAL = "goalToClearLevel";
+export const VALIDCANDIES = "validCandies";
+export const VALIDMOVES = "validMoves";
+export const NEXT = "next";
+export const RETRY = "retryLevel";
+export const SCORE = "scoreUpdate";
