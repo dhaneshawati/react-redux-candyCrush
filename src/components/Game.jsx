@@ -4,7 +4,6 @@ import greenCandy from "../Assets/green-candy-round.jpeg";
 import orangeCandy from "../Assets/orange-candy-big.jpeg";
 import purpleCandy from "../Assets/purple-candy.jpeg";
 import redCandy from "../Assets/red-candy.jpeg";
-// import yellowCandy from "../Assets/yellow-candy.jpeg";
 import blank from "../Assets/blank.png";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -199,7 +198,6 @@ function Game() {
       checkForRowOfThree(currentCandyArrangement);
       moveIntoSquareBelow();
       setCurrentCandyArrangement([...currentCandyArrangement]);
-      // console.log("TESTING...");
     }, 100);
 
     return () => clearInterval(timer);
@@ -214,17 +212,13 @@ function Game() {
     }
     setCurrentCandyArrangement([...randomCandyArrangement]);
   };
-  // console.log(currentCandyArrangement);
   const dragStart = (e) => {
     setSquareBeingDragged(e.target);
-    console.log("Drag start");
   };
   const dragDrop = (e) => {
     setSquareBeingReplaced(e.target);
-    console.log("Drag drop");
   };
   const dragEnd = (e) => {
-    console.log("Drag end");
     // replacing logic
     const squareBeingDraggedId = parseInt(
       squareBeingDragged.getAttribute("data-id")
@@ -232,8 +226,7 @@ function Game() {
     const squareBeingReplacedId = parseInt(
       squareBeingReplaced.getAttribute("data-id")
     );
-    console.log(squareBeingReplacedId);
-    console.log(squareBeingDraggedId);
+
     let dummyArr = [...currentCandyArrangement];
     let swap = dummyArr[squareBeingReplacedId];
     dummyArr[squareBeingReplacedId] = dummyArr[squareBeingDraggedId];
@@ -246,12 +239,6 @@ function Game() {
       squareBeingDraggedId + width,
       squareBeingDraggedId - 1,
     ];
-    console.log(squareBeingReplacedId);
-    // let swap = currentCandyArrangement[squareBeingReplacedId];
-    // currentCandyArrangement[squareBeingReplacedId] =
-    //   squareBeingDragged.getAttribute("src");
-    // currentCandyArrangement[squareBeingDraggedId] =
-    //   squareBeingReplaced.getAttribute("src");
 
     const isMoveValid = validMoves.includes(squareBeingReplacedId);
     const isAColumnOfFive = isMoveValid && checkForColumnOfFive(dummyArr);
@@ -260,13 +247,6 @@ function Game() {
     const isARowOfFour = isMoveValid && checkForRowOfFour(dummyArr);
     const isAColumnOfThree = isMoveValid && checkForColumnOfThree(dummyArr);
     const isARowOfThree = isMoveValid && checkForRowOfThree(dummyArr);
-    console.log("Move valid", isMoveValid);
-    console.log("5 column", isAColumnOfFive);
-    console.log("5 row", isARowOfFive);
-    console.log("4 column", isAColumnOfFour);
-    console.log("4 row", isARowOfFour);
-    console.log("3 column", isAColumnOfThree);
-    console.log("3 row", isARowOfThree);
 
     if (
       isMoveValid &&
@@ -278,7 +258,6 @@ function Game() {
         isARowOfThree)
     ) {
       // Move is valid
-      console.log("Inside if");
       setDragFlag(true);
       currentCandyArrangement[squareBeingReplacedId] =
         squareBeingDragged.getAttribute("src");
@@ -288,17 +267,8 @@ function Game() {
       setSquareBeingDragged(null);
       setSquareBeingReplaced(null);
       dispatch(decreaseMoves());
-      //   setTimeout(() => {
-      //     setDragFlag(false);
-      //   }, 100);
     } else {
-      console.log("Inside else");
       setDragFlag(false);
-      // Swaping candies back to their original position
-      // currentCandyArrangement[squareBeingDraggedId] =
-      //   squareBeingDragged.getAttribute("src");
-      // currentCandyArrangement[squareBeingReplacedId] =
-      //   squareBeingReplaced.getAttribute("src");
       setCurrentCandyArrangement([...currentCandyArrangement]);
     }
   };

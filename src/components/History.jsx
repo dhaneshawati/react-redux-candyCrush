@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import GameLostWModal from "./GameLostModal";
-// import GameWonModal from "./GameWonModal";
 
 function History() {
   const wonGames = useSelector((state) => state.gamesWon);

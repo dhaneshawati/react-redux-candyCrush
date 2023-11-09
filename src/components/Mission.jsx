@@ -3,12 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import blueCandy from "../Assets/blue-candy.jpeg";
 
 import {
-  levelCleared,
-  levelFailed,
-  nextLevel,
   showValidCandies,
   showValidMoves,
-  updateGoal,
 } from "../redux/actions/actionCreator";
 import GameWonModal from "./GameWonModal";
 import Burst from "./Burst";
@@ -28,13 +24,9 @@ function Mission() {
 
     if (maxMoves >= 0 && candiesRemaining <= 0) {
       setOpenModal(true);
-      //   dispatch(updateGoal(5));
-      //   dispatch(levelCleared());
-      //   dispatch(nextLevel());
     }
     if (maxMoves <= 0) {
       dispatch(showValidMoves());
-      //   dispatch(levelFailed());
     }
   }, [candiesRemaining, maxMoves]);
 

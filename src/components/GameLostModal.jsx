@@ -29,7 +29,6 @@ const style = {
 };
 
 export default function GameLostWModal({ open, setOpen }) {
-  //   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const handleExit = () => {
     setOpen(false);
@@ -42,7 +41,6 @@ export default function GameLostWModal({ open, setOpen }) {
   };
   return (
     <div className="wonModal">
-      {/* <Button onClick={handleOpen}>Open modal</Button> */}
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

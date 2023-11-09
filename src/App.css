@@ -67,8 +67,6 @@
   width: 40px;
   height: 40px;
   border-radius: 5px;
-  /* background-color: red; */
-  /* padding: 5px; */
 }
 .game img:hover {
   cursor: pointer;
